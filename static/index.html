@@ -41,7 +41,8 @@ show();
 btn.onclick = async () => {
   const s = img.value;
   const data = s.split(",").map(i => Base64.decode(i));
-  await fetchCBOR("/api/upload", data);  
+  await fetchCBOR("/api/upload", data);
+  img.value = "";
   show();
 };
 
