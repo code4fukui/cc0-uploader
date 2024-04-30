@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" href="data:">
+<title>CC0イメージアップローダー</title>
+</head><body>
+<h1>CC0イメージアップローダー</h1>
+<div>アップロードした画像はCC0（著作権なし）として誰でも自由に利用可能な画像となります。大丈夫な画像のみアップロードしてください。</div>
+<br>
+
+<script type="module" src="https://code4fukui.github.io/input-img/input-img.js"></script>
+<input-img id="img" multiple=true maxwidth=1220 maxsize=3MB></input-img>
+<br>
+<button id="btn">CC0としてアップロード</button>
+
+<hr>
+<div id=list></div>
+
+<hr>
+<a href=https://github.com/code4fukui/cc0-uploader/>src on GitHub</a>
+
+<script type="module">
+import { imgutil } from "https://code4sabae.github.io/js/imgutil.js";
+import { Base64 } from "https://code4fukui.github.io/Base64/Base64.js";
+import { CBOR } from "https://js.sabae.cc/CBOR.js";
+import { fetchCBOR } from "https://js.sabae.cc/fetchCBOR.js";
+
+
+const show = async () => {
+  const data = await (await fetch("/data/list.json")).json();
+  console.log(data);
+  list.innerHTML = "";
+  const ss = [];
+  for (const d of data) {
+    const fn = `data/${d.day}/${d.fn}`;
+    const div = `<div><a href=${fn}><img src=${fn}></a><div>${fn}</div></div>`;
+    ss.push(div);
+  }
+  list.innerHTML = ss.join("\n");
+};
+show();
+
+btn.onclick = async () => {
+  const s = img.value;
+  const data = s.split(",").map(i => Base64.decode(i));
+  await fetchCBOR("/api/upload", data);  
+  show();
+};
+
+</script>
+
+
+<style>
+input-img img {
+  width: 30vw;
+}
+#list > div {
+  display: inline-block;
+  width: 24vw;
+}
+#list img {
+  width: 95%;
+}
+a {
+  color: gray !important;
+}
+</style>
+
+</body></html>
