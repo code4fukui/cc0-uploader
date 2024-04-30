@@ -30,7 +30,7 @@ const show = async () => {
   const ss = [];
   for (const d of data) {
     const fn = `data/${d.day}/${d.fn}`;
-    const div = `<div><a href=${fn}><img src=${fn}></a><div>${fn}</div></div>`;
+    const div = `<div><a href=${fn}><img src=${fn}></a><input value="https://cc0.sabae.cc/${fn}"></div>`;
     ss.push(div);
   }
   list.innerHTML = ss.join("\n");
