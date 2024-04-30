@@ -15,6 +15,7 @@ const createOrLoad = async () => {
   return [];
 };
 const save = async (data) => {
+  await Deno.mkdir(fn.substring(0, fn.lastIndexOf("/")), { recursive: true });
   await Deno.writeTextFile(fn, JSON.stringify(data, 2, null));
 };
 
