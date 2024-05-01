@@ -40,11 +40,16 @@ const show = async () => {
 show();
 
 btn.onclick = async () => {
+  btn.disabled = true;
+  const bk = btn.textContent;
+  btn.textContent = "アップロード中です...";
   const s = img.value;
   const data = s.split(",").map(i => Base64.decode(i));
   await fetchCBOR("/api/upload", data);
   img.value = "";
   show();
+  btn.disabled = false;
+  btn.textContent = bk;
 };
 
 </script>
