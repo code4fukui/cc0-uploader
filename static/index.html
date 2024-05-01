@@ -32,7 +32,7 @@ const show = async () => {
   for (let i = data.length - 1; i >= 0; i--) {
     const d = data[i];
     const fn = `data/${d.day}/${d.fn}`;
-    const div = `<div><a href=${fn}><img src=${fn}></a><input value="https://cc0.sabae.cc/${fn}"></div>`;
+    const div = `<div><a href=${fn}><img src=${fn} loading=lazy></a><input value="https://cc0.sabae.cc/${fn}"></div>`;
     ss.push(div);
   }
   list.innerHTML = ss.join("\n");
