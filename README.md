@@ -1,5 +1,7 @@
 # cc0-uploader
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 A simple web application for uploading images and releasing them under the CC0 (public domain) license.
 
 ## Demo
