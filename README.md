@@ -4,9 +4,6 @@
 
 A simple web application for uploading images and releasing them under the CC0 (public domain) license.
 
-## Demo
-The application is available at https://cc0.sabae.cc/
-
 ## Features
 - Allows users to upload images
 - Automatically assigns a unique filename to each uploaded image
@@ -20,4 +17,4 @@ The application is available at https://cc0.sabae.cc/
 4. The uploaded images will be added to the list below, with their direct URLs displayed.
 
 ## License
-This project is licensed under the MIT License.
+MIT License — see [LICENSE](LICENSE).
